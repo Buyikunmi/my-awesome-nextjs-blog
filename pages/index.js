@@ -5,7 +5,6 @@ import { getPosts } from "../services";
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];
 
-  console.log(`post is`, posts);
   return {
     props: { posts },
   };
@@ -14,7 +13,7 @@ export default function Home({ posts }) {
   return (
     <div className="container mx-auto px-4 lg:px-10 mb-8 ">
       <Head>
-        <title>My Blog CMS</title>
+        <title>Agik's Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

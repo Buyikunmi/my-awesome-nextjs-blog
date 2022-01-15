@@ -1,6 +1,5 @@
 import React from "react";
-import moment from "moment";
-
+import { AuthorDetails } from ".";
 import Link from "next/link";
 
 const PostCard = ({ post }) => {
@@ -16,23 +15,7 @@ const PostCard = ({ post }) => {
       <h1 className="transition duration-700 text-center mb-8 cursor-pointer hover:text-pink-600 font-semibold">
         <Link href={`/posts/${post.slug}`}>{post.title}</Link>
       </h1>
-      <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
-        <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
-          <img
-            src={post.author.photo.url}
-            alt={post.author.name}
-            className="align-middle roudned-full"
-            height="30px"
-            width="30px"
-          />
-          <p className="inline align-middle text-gray-700 ml-2 text-lg">
-            {post.author.name}
-          </p>
-        </div>
-        <div className="font-mediun text-gray-700">
-          <span>{moment(post.createdAt).format("MMM DD, YYYY")}</span>
-        </div>
-      </div>
+      <AuthorDetails post={post} />
       <p className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8">
         {post.excerpt}
       </p>
